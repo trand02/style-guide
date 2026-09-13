@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Clinic Pitch Deck" description="5-slide sales-deck shell in the НаПоправку brand: title, checklist, chart, image and calendar layouts" -->
+<helmet><script src="./ds-base.js"></script><script src="image-slot.js"></script></helmet>
+<div style="display:flex;flex-direction:column;gap:24px;background:#ccc;padding:24px;align-items:center">
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0">
+<div style="position:absolute;left:90px;top:90px;width:560px;height:900px;border-radius:40px;background:linear-gradient(-32deg,rgb(198,239,246) 0%,rgb(9,187,210) 100%)"></div>
+<div style="position:absolute;left:680px;top:90px;width:1150px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;justify-content:space-between;padding:60px;box-sizing:border-box">
+<div style="display:flex;align-items:center;gap:16px">
+<x-import component-from-global-scope="DesignSystem_97e424.Logo" prop="logo" prop2="main" style="width:280px;height:auto" hint-size="280px,50px"></x-import>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<span style="font-family:var(--np-font);font-weight:700;font-size:72px;line-height:1.05;letter-spacing:0.01em;color:rgb(55,54,96)">НаПоправку — сервис записи в медицинские центры России</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:36px;line-height:1.05;color:rgb(94,94,128)">Создадим стабильный поток пациентов в вашу клинику в течение 3-х месяцев</span>
+</div>
+</div>
+</div>
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0">
+<div style="position:absolute;left:90px;top:90px;width:855px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;justify-content:space-between;padding:40px;box-sizing:border-box">
+<span style="font-family:var(--np-font);font-weight:700;font-size:56px;line-height:1.05;color:rgb(55,54,96)">Станьте партнёром за 3 дня:</span>
+<div style="display:flex;flex-direction:column;gap:20px">
+<span style="font-family:var(--np-font);font-weight:700;font-size:40px;line-height:1.05;color:rgb(55,54,96)">Всё, что будет дальше — только наша забота!</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:28px;line-height:1.4;letter-spacing:-0.01em;color:rgb(94,94,128)">Контент-менеджер наполнит профили клиники и врачей, заведёт прайс и настроит колл-трекинг. Специалисты по интеграции настроят онлайн-расписание.</span>
+</div>
+</div>
+<div style="position:absolute;left:975px;top:90px;width:855px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;justify-content:space-between;padding:40px;box-sizing:border-box">
+<span style="font-family:var(--np-font);font-weight:700;font-size:56px;line-height:1.05;color:rgb(55,54,96)">Что нужно сделать вам?</span>
+<div style="display:flex;flex-direction:column;gap:24px">
+<x-import component-from-global-scope="DesignSystem_97e424.ListItemCheck" text="Клиникам — мы помогаем больше зарабатывать и быть известнее" hint-size="100%,150px"></x-import>
+<x-import component-from-global-scope="DesignSystem_97e424.ListItemCheck" text="Пациентам — быть здоровее, благодаря вашим врачам" hint-size="100%,150px"></x-import>
+</div>
+</div>
+</div>
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0">
+<div style="position:absolute;left:90px;top:90px;width:855px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;gap:24px;padding:40px;box-sizing:border-box">
+<span style="font-family:var(--np-font);font-weight:700;font-size:56px;line-height:1.05;color:rgb(55,54,96)">С НаПоправку растёт объём записей:</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:26px;line-height:1.6;letter-spacing:-0.02em;color:rgb(94,94,128)">У средней многопрофильной клиники до подключения премиум-продвижения доходимость составляет около 30 пациентов в месяц. После — от 50-70. Еще выше цифры у крупных топовых клиник — от 100-500 пациентов в месяц.</span>
+</div>
+<div style="position:absolute;left:975px;top:90px;width:855px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;align-items:flex-end;justify-content:center;gap:24px;padding:60px;box-sizing:border-box">
+<x-import component-from-global-scope="DesignSystem_97e424.StatBar" value="18" max="70" color="rgb(215,215,223)" hint-size="100px,700px"></x-import>
+<x-import component-from-global-scope="DesignSystem_97e424.StatBar" value="20" max="70" color="rgb(176,175,191)" hint-size="100px,700px"></x-import>
+<x-import component-from-global-scope="DesignSystem_97e424.StatBar" value="40" max="70" color="rgb(102,214,228)" hint-size="100px,700px"></x-import>
+<x-import component-from-global-scope="DesignSystem_97e424.StatBar" value="70" max="70" color="rgb(0,185,209)" hint-size="100px,700px"></x-import>
+</div>
+</div>
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0">
+<div style="position:absolute;left:90px;top:90px;width:855px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;gap:24px;padding:40px;box-sizing:border-box">
+<span style="font-family:var(--np-font);font-weight:700;font-size:56px;line-height:1.05;color:rgb(55,54,96)">Смотрите, как это выглядит</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:26px;line-height:1.6;letter-spacing:-0.02em;color:rgb(94,94,128)">Профиль клиники в приложении НаПоправку — расписание, врачи и онлайн-запись в одном месте.</span>
+</div>
+<div style="position:absolute;left:975px;top:90px;width:855px;height:900px;border-radius:40px;background:linear-gradient(-43deg,rgb(198,239,246) 0%,rgb(9,187,210) 100%);box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;align-items:center;justify-content:center;overflow:hidden">
+<img src="assets/illustrations/schedule-slots.png" style="width:620px;height:auto;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.2)">
+</div>
+</div>
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0">
+<div style="position:absolute;left:90px;top:90px;width:855px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;gap:24px;padding:40px;box-sizing:border-box">
+<span style="font-family:var(--np-font);font-weight:700;font-size:56px;line-height:1.05;color:rgb(55,54,96)">Медиаплан на 2 месяца</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:26px;line-height:1.6;letter-spacing:-0.02em;color:rgb(94,94,128)">Количество активностей по каналам продвижения, август–сентябрь.</span>
+</div>
+<div style="position:absolute;left:975px;top:90px;width:855px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);padding:50px;box-sizing:border-box;display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px 10px;align-content:start">
+<span style="font-family:var(--np-font);font-weight:600;font-size:20px;color:rgb(55,54,96)"></span>
+<span style="font-family:var(--np-font);font-weight:600;font-size:20px;color:rgb(55,54,96);text-align:center">Август</span>
+<span style="font-family:var(--np-font);font-weight:600;font-size:20px;color:rgb(55,54,96);text-align:center">Сентябрь</span>
+<span style="font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96);align-self:center">Вебинары</span>
+<span style="background:rgb(230,248,252);border-radius:12px;padding:14px;text-align:center;font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96)">20</span>
+<span style="background:rgb(230,248,252);border-radius:12px;padding:14px;text-align:center;font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96)">16</span>
+<span style="font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96);align-self:center">Ватсап рассылка</span>
+<span style="background:rgb(230,248,252);border-radius:12px;padding:14px;text-align:center;font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96)">31</span>
+<span style="background:rgb(230,248,252);border-radius:12px;padding:14px;text-align:center;font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96)">60</span>
+<span style="font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96);align-self:center">Лендинги</span>
+<span style="background:rgb(230,248,252);border-radius:12px;padding:14px;text-align:center;font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96)">29</span>
+<span style="background:rgb(230,248,252);border-radius:12px;padding:14px;text-align:center;font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96)">31</span>
+<span style="font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96);align-self:center">Платный трафик</span>
+<span style="background:rgb(230,248,252);border-radius:12px;padding:14px;text-align:center;font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96)">6</span>
+<span style="background:rgb(230,248,252);border-radius:12px;padding:14px;text-align:center;font-family:var(--np-font);font-weight:500;font-size:18px;color:rgb(55,54,96)">6</span>
+</div>
+</div>
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0">
+<span style="position:absolute;left:92px;top:90px;width:1738px;font-family:var(--np-font);font-weight:700;font-size:56px;line-height:1.05;color:rgb(55,54,96)">С чем сталкиваются медицинские центры по всей России?</span>
+<div style="position:absolute;left:92px;top:315px;width:558px;height:689px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;gap:24px;padding:40px;box-sizing:border-box">
+<span style="font-family:var(--np-font);font-weight:700;font-size:36px;line-height:1.05;color:rgb(55,54,96)">Пациенты не находят клинику</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:26px;line-height:1.4;letter-spacing:-0.01em;color:rgb(94,94,128)">Новые пациенты ищут врача онлайн, но в выдаче первыми стоят крупные сети с большими рекламными бюджетами</span>
+</div>
+<div style="position:absolute;left:680px;top:315px;width:558px;height:689px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;gap:24px;padding:40px;box-sizing:border-box">
+<span style="font-family:var(--np-font);font-weight:700;font-size:36px;line-height:1.05;color:rgb(55,54,96)">Мало времени на маркетинг</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:26px;line-height:1.4;letter-spacing:-0.01em;color:rgb(94,94,128)">У клиники нет своей маркетинговой команды, а вести рекламу и контент самим — дорого и долго</span>
+</div>
+<div style="position:absolute;left:1272px;top:315px;width:558px;height:689px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;gap:24px;padding:40px;box-sizing:border-box">
+<span style="font-family:var(--np-font);font-weight:700;font-size:36px;line-height:1.05;color:rgb(55,54,96)">Сложно оценить эффективность</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:26px;line-height:1.4;letter-spacing:-0.01em;color:rgb(94,94,128)">Непонятно, сколько пациентов приходит по конкретному каналу продвижения</span>
+</div>
+</div>
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0">
+<span style="position:absolute;left:92px;top:90px;width:1738px;font-family:var(--np-font);font-weight:700;font-size:56px;line-height:1.05;color:rgb(55,54,96)">Дополнительные инструменты в вашем тарифе</span>
+<div style="position:absolute;left:90px;top:240px;width:1740px;height:750px;border-radius:40px;background:linear-gradient(-67deg,rgb(198,239,246) 0%,rgb(9,187,210) 100%);box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;align-items:center;justify-content:center;overflow:hidden">
+<img src="assets/illustrations/schedule-card-a.png" style="height:480px;width:auto;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.2)">
+</div>
+</div>
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0">
+<div style="position:absolute;left:90px;top:90px;width:1740px;height:900px;display:flex;flex-direction:row;justify-content:space-between;align-items:center">
+<div style="position:relative;width:558px;height:900px;border-radius:40px;background:linear-gradient(-32deg,rgb(198,239,246) 0%,rgb(9,187,210) 100%);box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+<img src="assets/illustrations/globe.png" style="width:420px;height:auto">
+</div>
+<div style="position:relative;width:1148px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;padding:60px;justify-content:center;gap:32px;box-sizing:border-box;flex-shrink:0">
+<span style="font-family:var(--np-font);font-weight:700;font-size:64px;line-height:1.05;letter-spacing:0.01em;color:rgb(55,54,96)">Готовы стать партнёром?</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:32px;line-height:1.4;color:rgb(94,94,128)">Оставьте заявку — контент-менеджер свяжется с вами и запустит профиль клиники за 3 дня.</span>
+<div style="display:inline-flex;align-items:center;padding:20px 40px;border-radius:999px;background:rgb(0,185,209);width:fit-content">
+<span style="font-family:var(--np-font);font-weight:700;font-size:28px;color:#fff">Оставить заявку</span>
+</div>
+</div>
+</div>
+</div>
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0;padding:90px;box-sizing:border-box">
+<span style="font-family:var(--np-font);font-weight:700;font-size:56px;line-height:1.05;color:rgb(55,54,96)">Наши клиенты</span>
+<div style="margin-top:60px;display:grid;grid-template-columns:repeat(6,1fr);gap:20px">
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-1" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-2" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-3" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-4" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-5" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-6" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-7" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-8" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-9" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-10" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-11" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-12" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-13" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-14" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-15" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-16" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-17" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+<div style="background:#fff;border-radius:20px;height:130px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box"><image-slot id="logo-18" shape="rect" placeholder="Лого клиники" style="width:100%;height:100%"></image-slot></div>
+</div>
+</div>
+
+<div style="position:relative;width:1920px;height:1080px;overflow:hidden;background:rgb(231,238,249);flex-shrink:0">
+<div style="position:absolute;left:90px;top:90px;width:855px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;justify-content:space-between;padding:60px;box-sizing:border-box">
+<div style="display:flex;flex-direction:column;gap:16px">
+<span style="font-family:var(--np-font);font-weight:700;font-size:64px;line-height:1.1;color:rgb(55,54,96)">Остались вопросы?</span>
+<span style="font-family:var(--np-font);font-weight:400;font-size:28px;color:rgb(94,94,128)">Мы на связи и рады помочь!</span>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<x-import component-from-global-scope="DesignSystem_97e424.Logo" prop="icon" prop2="main" style="width:56px;height:56px" hint-size="56px,56px"></x-import>
+<span style="font-family:var(--np-font);font-weight:700;font-size:28px;color:rgb(55,54,96)">НаПоправку</span>
+<div style="width:2px;height:36px;background:rgb(102,214,228)"></div>
+<span style="font-family:var(--np-font);font-weight:600;font-size:20px;color:rgb(102,214,228)">для клиник</span>
+</div>
+</div>
+<div style="position:absolute;left:975px;top:90px;width:855px;height:900px;border-radius:40px;background:#fff;box-shadow:0 0 14px rgba(55,54,96,.06);display:flex;flex-direction:column;align-items:center;padding:60px;box-sizing:border-box">
+<image-slot id="manager-photo" shape="circle" placeholder="Фото менеджера" style="width:240px;height:240px;box-shadow:0 0 0 6px rgb(198,239,246)"></image-slot>
+<span style="margin-top:32px;font-family:var(--np-font);font-weight:700;font-size:32px;color:rgb(55,54,96)">Имя Фамилия</span>
+<span style="margin-top:8px;font-family:var(--np-font);font-weight:400;font-size:22px;color:rgb(94,94,128);text-align:center">Менеджер по развитию бизнеса НаПоправку</span>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:16px;align-self:flex-start">
+<div style="display:flex;align-items:center;gap:14px">
+<x-import component-from-global-scope="DesignSystem_97e424.IconTile" icon="PhoneCall01" color="var(--np-orange)" size="40" style="width:40px;height:40px" hint-size="40px,40px"></x-import>
+<span style="font-family:var(--np-font);font-weight:700;font-size:24px;color:rgb(55,54,96)">+7 (000) 000 00 00</span>
+</div>
+<div style="display:flex;align-items:center;gap:14px">
+<x-import component-from-global-scope="DesignSystem_97e424.IconTile" icon="Mail01" color="var(--np-orange)" size="40" style="width:40px;height:40px" hint-size="40px,40px"></x-import>
+<span style="font-family:var(--np-font);font-weight:700;font-size:24px;color:rgb(55,54,96)">name@napopravku.ru</span>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:700}}"></script>
+</body>
+</html>
