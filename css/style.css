@@ -13074,6 +13074,12 @@
     grid-row-gap: 10px;
     grid-template-columns: .5fr 1fr;
   }
+.all-2 .download-wraper {
+    flex-wrap: wrap;
+  }
+.all-2 .swn-btn {
+    flex: 1 1 84px;
+  }
 .all-2 .div-block-185 {
     grid-template-columns: 1fr;
   }
@@ -15549,6 +15555,12 @@
   }
 .all-2 .swn-btn {
     margin-top: 0;
+  }
+.all-2 .download-wraper {
+    flex-wrap: wrap;
+  }
+.all-2 .swn-btn {
+    flex: 1 1 84px;
   }
 .all-2 .fdfdf {
     flex-flow: column;
