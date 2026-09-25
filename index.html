@@ -63,12 +63,13 @@ a  {
   max-width:1280px;margin:0 auto;padding:40px 24px 96px;
   font-family:Montserrat,-apple-system,sans-serif;color:var(--sg-ink);align-items:start}
 .all-2 .sg-nav{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;
-  padding-right:6px;scrollbar-width:thin}
-.all-2 .sg-nav__logo{display:block;margin-bottom:24px}
+  padding:20px 16px;background:#fff;border-radius:24px;
+  box-shadow:0 1px 2px rgba(55,54,96,.04);scrollbar-width:thin}
+.all-2 .sg-nav__logo{display:block;margin:0 4px 20px}
 .all-2 .sg-nav__filter{width:100%;box-sizing:border-box;margin-bottom:16px;padding:11px 14px;
   font:500 15px Montserrat,sans-serif;color:var(--sg-ink);
-  border:1px solid var(--sg-line);border-radius:12px;background:#fff;outline:none}
-.all-2 .sg-nav__filter:focus{border-color:var(--sg-accent);box-shadow:0 0 0 3px var(--sg-accent-bg)}
+  border:1px solid transparent;border-radius:12px;background:var(--sg-page);outline:none}
+.all-2 .sg-nav__filter:focus{border-color:var(--sg-accent);background:#fff;box-shadow:0 0 0 3px var(--sg-accent-bg)}
 
 .all-2 .sg-nav__list{list-style:none;margin:0;padding:0}
 /* подпункты без отступа: иерархию держат номера и цвет */
@@ -77,8 +78,8 @@ a  {
 
 .all-2 .sg-nav__row{display:flex;align-items:center;gap:2px;
   border:2px solid transparent;border-radius:12px;transition:background-color .15s}
-.all-2 .sg-nav__row:hover{background:rgba(255,255,255,.5)}
-.all-2 .sg-nav__row.is-active{background:#fff}
+.all-2 .sg-nav__row:hover{background:var(--sg-page)}
+.all-2 .sg-nav__row.is-active{background:#fef7e0}
 .all-2 .sg-nav__toggle{flex:none;width:22px;height:22px;padding:0;border:0;border-radius:6px;
   background:none;color:#b0afbf;cursor:pointer;display:grid;place-items:center}
 .all-2 .sg-nav__toggle svg{transition:transform .18s ease}
@@ -118,9 +119,9 @@ a  {
    при необходимости заменить на реальный чат/почту команды бренда */
 .all-2 a.sg-nav__feedback,.all-2 a.sg-nav__feedback:link,.all-2 a.sg-nav__feedback:visited,
 .all-2 a.sg-nav__feedback:hover,.all-2 a.sg-nav__feedback:active{display:block;margin-top:16px;
-  padding:10px 12px;border:1px solid var(--sg-line);border-radius:12px;background:#fff;
+  padding:10px 12px;border:1px solid transparent;border-radius:12px;background:var(--sg-page);
   font:500 13px Montserrat,sans-serif;color:var(--sg-muted);text-decoration:none;text-align:center}
-.all-2 a.sg-nav__feedback:hover{border-color:var(--sg-accent);color:var(--sg-accent)}
+.all-2 a.sg-nav__feedback:hover{border-color:var(--sg-accent);background:#fff;color:var(--sg-accent)}
 @media (max-width:991px){.all-2 a.sg-nav__feedback{margin-top:12px}}
 /* цитата под пунктом меню — когда поиск нашёл слово в тексте раздела, а не в заголовке */
 .all-2 .sg-nav__snippet{margin:-2px 0 4px 34px;padding:0 12px;font:400 12px/1.4 Montserrat,sans-serif;
@@ -390,7 +391,7 @@ a  {
     font:600 15px Montserrat,sans-serif;color:#fff;background:var(--sg-accent);
     border:0;border-radius:12px;cursor:pointer;text-align:left}
   .all-2 .sg-nav{position:static;max-height:none;display:none;margin-bottom:24px;
-    padding:16px;border:1px solid var(--sg-line);border-radius:16px}
+    padding:16px}
   .all-2 .sg-nav.is-open{display:block}
   .all-2 .sg-nav__logo{display:none}
   .all-2 .sg-l1>.sg-sec__title{font-size:28px}
