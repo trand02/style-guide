@@ -79,10 +79,11 @@ a  {
 .all-2 .sg-nav__list--2,.all-2 .sg-nav__list--3{margin:2px 0 4px;padding-left:0}
 .all-2 .sg-nav__list[hidden]{display:none}
 
-.all-2 .sg-nav__row{position:relative;display:flex;align-items:center;gap:2px;
+.all-2 .sg-nav__row{position:relative;display:flex;align-items:center;gap:2px;overflow:hidden;
   border:2px solid transparent;border-radius:10px;transition:background-color .15s}
-.all-2 .sg-nav__row:hover{background:linear-gradient(90deg,rgba(0,185,209,.18) 0%,rgba(0,185,209,.06) 55%,rgba(0,185,209,0) 100%)}
-.all-2 .sg-nav__row.is-active{background:linear-gradient(90deg,rgba(0,185,209,.38) 0%,rgba(0,185,209,.14) 55%,rgba(0,185,209,0) 100%)}
+.all-2 .sg-nav__row::before{content:"";position:absolute;inset:-1px;z-index:-1}
+.all-2 .sg-nav__row:hover::before{background:linear-gradient(90deg,rgba(0,185,209,.18) 0%,rgba(0,185,209,.06) 55%,rgba(0,185,209,0) 100%)}
+.all-2 .sg-nav__row.is-active::before{background:linear-gradient(90deg,rgba(0,185,209,.38) 0%,rgba(0,185,209,.14) 55%,rgba(0,185,209,0) 100%)}
 .all-2 .sg-nav__row.is-active .sg-nav__link{color:var(--sg-ink);font-weight:700}
 .all-2 .sg-nav__row.is-active .sg-nav__num{color:var(--sg-accent)}
 .all-2 .sg-nav__toggle{flex:none;width:20px;height:20px;padding:0;border:0;border-radius:6px;
