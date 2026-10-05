@@ -10,13 +10,20 @@
 <style>body{margin:0;background:#e7eef9}
 /* ── Date in tab buttons ─────────────────────────────────────────────────── */
 .all-2 .sg-tabs--lg button .sg-tab__date {
-  font: 500 10px/1 Montserrat, sans-serif;
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: var(--sg-canvas, #f0f2f7);
+  border: 1px solid var(--sg-line, rgba(55,54,96,.12));
+  font: 500 10px/1.4 Montserrat, sans-serif;
   color: var(--sg-muted);
   letter-spacing: .02em;
-  margin-top: -2px;
+  margin-top: 2px;
 }
 .all-2 .sg-tabs--lg button.is-active .sg-tab__date {
-  color: var(--sg-accent);
+  background: var(--sg-accent-bg, #ccf1f7);
+  border-color: var(--sg-accent, #00b9d1);
+  color: var(--sg-accent, #00b9d1);
 }
 </style>
 <!-- ===== НаПоправку Плюс / style : код для HEAD ===== -->
