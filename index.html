@@ -746,6 +746,8 @@ a  {
   .sg-back-top { background: #1e2535; color: #e2e8f2; border-color: #2c3548; }
 }
 [data-theme="dark"] .sg-back-top { background: #1e2535 !important; color: #e2e8f2 !important; border-color: #2c3548 !important; }
+[data-theme="light"] .sg-back-top { background: #fff !important; color: #373660 !important; border-color: rgba(0,0,0,.12) !important; }
+[data-theme="light"] .sg-theme-toggle { background: #fff !important; color: #373660 !important; border-color: rgba(0,0,0,.12) !important; }
 
 /* Improved reduced-motion: also silence animations */
 @media (prefers-reduced-motion: reduce) {
@@ -1563,7 +1565,11 @@ a  {
       document.documentElement.setAttribute('data-theme', next);
       try { localStorage.setItem(KEY, next); } catch (e) {}
       var logo = document.getElementById('sg-nav-logo');
-      if (logo) logo.src = next === 'dark' ? 'images/logo-dark-color.svg' : 'images/group-277131981.svg';
+      if (logo) {
+        logo.src = next === 'dark' ? 'images/logo-dark-color.svg' : 'images/group-277131981.svg';
+        var pic = logo.closest('picture');
+        if (pic) { var src = pic.querySelector('source'); if (src) src.media = next === 'dark' ? 'all' : 'not all'; }
+      }
     });
   })();
 
