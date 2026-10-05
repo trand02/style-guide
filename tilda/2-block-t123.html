@@ -277,3 +277,430 @@
 
 
 <!-- поведение гайдлайна: меню, поиск, копирование цветов -->
+
+<script>(function () {
+function init() {
+var nav = document.getElementById('sg-nav');
+if (!nav) return;
+var links = [].slice.call(nav.querySelectorAll('.sg-nav__link'));
+var toggles = [].slice.call(nav.querySelectorAll('.sg-nav__toggle[aria-expanded]'));
+var burger = document.getElementById('sg-burger');
+var filter = document.getElementById('sg-filter');
+var byId = {};
+links.forEach(function (a) { byId[a.dataset.target] = a; });
+function setOpen(btn, open) {
+var list = document.getElementById(btn.getAttribute('aria-controls'));
+if (!list) return;
+btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+btn.setAttribute('aria-label', (open ? 'Свернуть раздел ' : 'Развернуть раздел ') +
+btn.parentElement.querySelector('.sg-nav__text').textContent);
+list.hidden = !open;
+}
+toggles.forEach(function (btn) {
+btn.addEventListener('click', function () {
+setOpen(btn, btn.getAttribute('aria-expanded') !== 'true');
+});
+});
+function reveal(link) {
+var activeItem = link ? link.closest('.sg-nav__item') : null;
+toggles.forEach(function (btn) {
+var owner = btn.closest('.sg-nav__item');
+var keepOpen = !!(activeItem && owner && (owner === activeItem || owner.contains(activeItem)));
+if ((btn.getAttribute('aria-expanded') === 'true') !== keepOpen) setOpen(btn, keepOpen);
+});
+}
+var secs = [].slice.call(document.querySelectorAll('.sg-sec'));
+var ticking = false;
+function depth(sec) {
+var d = 0, p = sec.parentElement;
+while (p) { if (p.classList && p.classList.contains('sg-sec')) d++; p = p.parentElement; }
+return d;
+}
+function highlight() {
+ticking = false;
+var line = 140, current = null;
+for (var i = 0; i < secs.length; i++) {
+var top = secs[i].getBoundingClientRect().top;
+if (top - line <= 0) {
+if (!current || depth(secs[i]) >= depth(current) || secs[i].contains(current) === false) current = secs[i];
+}
+}
+if (!current && secs.length) current = secs[0];
+links.forEach(function (a) {
+a.classList.remove('is-active');
+var r = a.closest('.sg-nav__row'); if (r) r.classList.remove('is-active');
+});
+var node = current, first = true;
+while (node) {
+var link = byId[node.id];
+if (link) {
+if (first) {
+link.classList.add('is-active');
+var row = link.closest('.sg-nav__row'); 
+if (row) row.classList.add('is-active');
+}
+if (first) reveal(link);
+first = false;
+}
+node = node.parentElement ? node.parentElement.closest('.sg-sec') : null;
+}
+}
+window.addEventListener('scroll', function () {
+if (!ticking) { ticking = true; requestAnimationFrame(highlight); }
+}, { passive: true });
+window.addEventListener('resize', highlight);
+highlight();
+links.forEach(function (a) {
+a.addEventListener('click', function (e) {
+var target = document.getElementById(a.dataset.target);
+if (!target) return;
+e.preventDefault();
+var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (typeof revealAncestorTabs === 'function') revealAncestorTabs(a.dataset.target);
+target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+history.replaceState(null, '', '#' + a.dataset.target);
+var own = a.parentElement.querySelector('.sg-nav__toggle[aria-expanded]');
+if (own) setOpen(own, true);
+if (window.innerWidth < 992) { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); }
+});
+});
+function textWithGaps(el) {
+var parts = [];
+(function walk(node) {
+if (node.nodeType === 3) { parts.push(node.nodeValue); return; }
+if (node.nodeType !== 1 || node.tagName === 'SCRIPT' || node.tagName === 'STYLE') return;
+for (var i = 0; i < node.childNodes.length; i++) walk(node.childNodes[i]);
+parts.push(' ');
+})(el);
+return parts.join('').replace(/\s+/g, ' ').trim();
+}
+if (filter) {
+var searchIndex = [].slice.call(nav.querySelectorAll('.sg-nav__item')).map(function (li) {
+var link = li.querySelector('.sg-nav__link');
+var target = document.getElementById(link.dataset.target);
+return { li: li, link: link, title: link.textContent.toLowerCase(),
+body: target ? textWithGaps(target).toLowerCase() : '' };
+});
+filter.addEventListener('input', function () {
+var q = filter.value.trim().toLowerCase();
+var items = searchIndex.map(function (row) { return row.li; });
+nav.querySelectorAll('.sg-nav__snippet').forEach(function (s) { s.remove(); });
+if (!q) {
+items.forEach(function (li) { li.hidden = false; });
+toggles.forEach(function (btn) { setOpen(btn, true); });
+var m0 = nav.querySelector('.sg-nav__empty'); if (m0) m0.remove();
+return;
+}
+var shown = 0;
+items.forEach(function (li) { li.hidden = true; });
+searchIndex.forEach(function (row) {
+var li = row.li;
+var inTitle = row.title.indexOf(q) !== -1;
+var pos = inTitle ? -1 : row.body.indexOf(q);
+if (!inTitle && pos === -1) return;
+shown++;
+li.hidden = false;
+li.querySelectorAll('.sg-nav__item').forEach(function (kid) { kid.hidden = false; });
+var p = li.parentElement ? li.parentElement.closest('.sg-nav__item') : null;
+while (p) { p.hidden = false; p = p.parentElement.closest('.sg-nav__item'); }
+if (!inTitle && pos !== -1) {
+var from = Math.max(0, pos - 26);
+var quote = (from > 0 ? '…' : '') + row.body.slice(from, pos + q.length + 26).trim() + '…';
+var snip = document.createElement('p');
+snip.className = 'sg-nav__snippet';
+snip.textContent = quote;
+var rowEl = li.querySelector('.sg-nav__row');
+if (rowEl) rowEl.insertAdjacentElement('afterend', snip);
+}
+});
+toggles.forEach(function (btn) { setOpen(btn, true); });
+var msg = nav.querySelector('.sg-nav__empty');
+if (!shown && !msg) {
+msg = document.createElement('p');
+msg.className = 'sg-nav__empty';
+msg.textContent = 'Ничего не нашлось';
+nav.querySelector('.sg-nav__body').appendChild(msg);
+} else if (shown && msg) { msg.remove(); }
+});
+}
+[].slice.call(document.querySelectorAll('.sg-updated')).forEach(function (box) {
+var t = box.querySelector('time');
+var age = box.querySelector('.sg-updated__age');
+if (!t || !age) return;
+var d = new Date(t.getAttribute('datetime'));
+if (isNaN(d)) return;
+var days = Math.floor((Date.now() - d.getTime()) / 86400000);
+var text;
+if (days <= 0) text = 'сегодня';
+else if (days === 1) text = 'вчера';
+else if (days < 30) text = days + ' дн. назад';
+else if (days < 365) { var mo = Math.round(days / 30); text = mo + ' мес. назад'; }
+else { var y = Math.floor(days / 365); text = y + (y === 1 ? ' год назад' : ' г. назад'); }
+age.textContent = '· ' + text;
+if (days > 180) {
+box.classList.add('is-stale');
+box.title = 'Инструкция не обновлялась больше полугода — стоит проверить актуальность';
+}
+});
+[].slice.call(document.querySelectorAll('.sg-prompt')).forEach(function (box) {
+var btn = box.querySelector('.sg-prompt__copy');
+var pre = box.querySelector('.sg-prompt__text');
+if (!btn || !pre) return;
+btn.addEventListener('click', function (e) {
+e.preventDefault();
+e.stopPropagation();
+var text = pre.textContent;
+var done = function () {
+btn.classList.add('is-copied');
+var was = btn.textContent; btn.textContent = 'Скопировано';
+setTimeout(function () { btn.classList.remove('is-copied'); btn.textContent = was; }, 1400);
+};
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(text).then(done, done);
+} else {
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.cssText = 'position:absolute;left:-9999px';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); done(); } catch (e) {}
+document.body.removeChild(ta);
+}
+});
+});
+[].slice.call(document.querySelectorAll('.sg-color__row[data-copy]')).forEach(function (row) {
+function done() {
+var val = row.querySelector('.sg-color__value');
+var was = val.textContent;
+row.classList.add('is-copied');
+val.textContent = 'скопировано';
+setTimeout(function () { row.classList.remove('is-copied'); val.textContent = was; }, 1200);
+}
+function copy() {
+var text = row.getAttribute('data-copy');
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(text).then(done, done);
+} else {
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.cssText = 'position:absolute;left:-9999px';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); done(); } catch (e) {}
+document.body.removeChild(ta);
+}
+}
+row.addEventListener('click', copy);
+row.addEventListener('keydown', function (e) {
+if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
+});
+});
+var OK_SMALL = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" ' +
+'stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+'<path d="M4 12.5 9.5 18 20 6.5"/></svg>';
+[].slice.call(document.querySelectorAll('.sg-big__row, .sg-grad__chip, .sg-grad__css')).forEach(function (row) {
+var ico = row.querySelector('.sg-big__ico');
+var original = ico ? ico.innerHTML : '';
+var isChip = row.classList.contains('sg-grad__chip');
+var cssText = row.querySelector('.sg-grad__csstext');
+row.addEventListener('click', function () {
+var value = row.getAttribute('data-copy');
+var done = function () {
+row.classList.add('is-copied');
+var val = row.querySelector('.sg-big__val');
+if (val && !val.dataset.orig) { val.dataset.orig = val.textContent; val.textContent = 'Скопировано'; }
+if (isChip) {
+var code = row.querySelector('.sg-grad__code');
+if (code && !code.dataset.orig) { code.dataset.orig = code.textContent; code.textContent = 'скопирован'; }
+}
+if (cssText && !cssText.dataset.orig) {
+cssText.dataset.orig = cssText.textContent;
+cssText.textContent = 'Скопировано';
+}
+if (ico) ico.innerHTML = OK_SMALL;
+setTimeout(function () {
+row.classList.remove('is-copied');
+if (ico) ico.innerHTML = original;
+var v = row.querySelector('.sg-big__val');
+if (v && v.dataset.orig) { v.textContent = v.dataset.orig; delete v.dataset.orig; }
+if (isChip) {
+var c = row.querySelector('.sg-grad__code');
+if (c && c.dataset.orig) { c.textContent = c.dataset.orig; delete c.dataset.orig; }
+}
+if (cssText && cssText.dataset.orig) {
+cssText.textContent = cssText.dataset.orig;
+delete cssText.dataset.orig;
+}
+}, 1400);
+};
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(value).then(done, done);
+} else {
+var ta = document.createElement('textarea');
+ta.value = value; ta.style.cssText = 'position:absolute;left:-9999px';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); } catch (e) {}
+document.body.removeChild(ta);
+done();
+}
+});
+});
+var COPY_ICON = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http:
+var OK_ICON = '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" ' +
+'stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+'<path d="M4 12.5 9.5 18 20 6.5"/></svg>';
+[].slice.call(document.querySelectorAll('.style-color-wraper:not(.sg-big)')).forEach(function (el) {
+var txt = el.textContent || '';
+var m = txt.match(/HEX[:\s]*#?([0-9a-fA-F]{6})/) || txt.match(/HEX[:\s]*#?([0-9a-fA-F]{3})(?![0-9a-fA-F])/);
+if (!m) return;
+var hex = '#' + m[1].toUpperCase();
+el.classList.add('sg-copy');
+el.setAttribute('role', 'button');
+el.setAttribute('tabindex', '0');
+el.setAttribute('aria-label', 'Скопировать HEX-код ' + hex);
+var overlay = document.createElement('span');
+overlay.className = 'sg-copy__overlay';
+overlay.setAttribute('aria-hidden', 'true');
+overlay.innerHTML = COPY_ICON + '<span class="sg-copy__label">Скопировать<br>HEX-код</span>';
+el.appendChild(overlay);
+function done() {
+overlay.innerHTML = OK_ICON + '<span class="sg-copy__label">' + hex + '<br>скопирован</span>';
+el.classList.add('is-copied');
+setTimeout(function () {
+el.classList.remove('is-copied');
+overlay.innerHTML = COPY_ICON + '<span class="sg-copy__label">Скопировать<br>HEX-код</span>';
+}, 1400);
+}
+function fallback() {
+var ta = document.createElement('textarea');
+ta.value = hex; ta.setAttribute('readonly', '');
+ta.style.cssText = 'position:absolute;left:-9999px';
+document.body.appendChild(ta); ta.select();
+try { document.execCommand('copy'); } catch (err) {}
+document.body.removeChild(ta);
+done(); 
+}
+function copy() {
+if (navigator.clipboard && window.isSecureContext) {
+navigator.clipboard.writeText(hex).then(done, fallback);
+} else { fallback(); }
+}
+el.addEventListener('click', copy);
+el.addEventListener('keydown', function (e) {
+if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
+});
+});
+function activateTab(btn) {
+var group = btn.closest('.sg-tabs');
+if (!group) return;
+[].slice.call(group.querySelectorAll('button[aria-controls]')).forEach(function (b) {
+var on = b === btn;
+b.classList.toggle('is-active', on);
+b.setAttribute('aria-selected', on ? 'true' : 'false');
+var panel = document.getElementById(b.getAttribute('aria-controls'));
+if (panel) panel.hidden = !on;
+});
+}
+function revealAncestorTabs(id) {
+var node = document.getElementById(id);
+while (node) {
+if (node.classList && node.classList.contains('sg-tabpanel') && node.hidden) {
+var btn = document.querySelector('.sg-tabs button[aria-controls="' + node.id + '"]');
+if (btn) activateTab(btn);
+}
+node = node.parentElement;
+}
+}
+[].slice.call(document.querySelectorAll('.sg-tabs')).forEach(function (group) {
+var buttons = [].slice.call(group.querySelectorAll('button[aria-controls]'));
+buttons.forEach(function (btn) {
+btn.addEventListener('click', function () { activateTab(btn); });
+});
+});
+[].slice.call(document.querySelectorAll('[data-pick-tab]')).forEach(function (card) {
+card.addEventListener('click', function () {
+var btnId = card.getAttribute('data-pick-tab');
+var btn = document.getElementById(btnId);
+if (btn) {
+activateTab(btn);
+var panel = document.getElementById(btn.getAttribute('aria-controls'));
+if (panel) {
+var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+panel.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+}
+}
+});
+});
+if (location.hash) revealAncestorTabs(location.hash.slice(1));
+if (burger) {
+burger.addEventListener('click', function () {
+var open = nav.classList.toggle('is-open');
+burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+}
+(function () {
+var toggle = document.getElementById('rp-compact-toggle');
+var section = document.getElementById('redpolitika');
+if (!toggle || !section) return;
+var KEY = 'mk-rp-compact';
+function apply(on) {
+section.classList.toggle('is-compact', on);
+toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+toggle.textContent = on ? 'Показать подробно — с «Почему»' : 'Показать кратко — скрыть «Почему»';
+}
+var saved = false;
+try { saved = localStorage.getItem(KEY) === '1'; } catch (e) {}
+apply(saved);
+toggle.addEventListener('click', function () {
+var on = toggle.getAttribute('aria-pressed') !== 'true';
+apply(on);
+try { localStorage.setItem(KEY, on ? '1' : '0'); } catch (e) {}
+});
+})();
+}
+(function () {
+var btn = document.getElementById('sg-back-top');
+if (!btn) return;
+var shown = false;
+function update() {
+var should = window.scrollY > 400;
+if (should !== shown) { shown = should; btn.classList.toggle('is-visible', shown); }
+}
+window.addEventListener('scroll', update, { passive: true });
+btn.addEventListener('click', function () {
+var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
+});
+update();
+})();
+(function () {
+var nav = document.getElementById('sg-nav');
+var burgerBtn = document.getElementById('sg-burger');
+if (!nav || !burgerBtn) return;
+var FOCUSABLE = 'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
+function getFocusable() { return [].slice.call(nav.querySelectorAll(FOCUSABLE)); }
+document.addEventListener('keydown', function (e) {
+if (!nav.classList.contains('is-open')) return;
+if (e.key === 'Escape') {
+nav.classList.remove('is-open');
+burgerBtn.setAttribute('aria-expanded', 'false');
+burgerBtn.focus();
+return;
+}
+if (e.key !== 'Tab') return;
+var focusable = getFocusable();
+if (!focusable.length) return;
+var first = focusable[0], last = focusable[focusable.length - 1];
+if (e.shiftKey) {
+if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+} else {
+if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+});
+document.addEventListener('click', function (e) {
+if (!nav.classList.contains('is-open')) return;
+if (!nav.contains(e.target) && e.target !== burgerBtn) {
+nav.classList.remove('is-open');
+burgerBtn.setAttribute('aria-expanded', 'false');
+}
+});
+})();
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();
+})();</script>
