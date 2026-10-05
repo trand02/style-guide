@@ -519,125 +519,7 @@ a  {
 /* ═══ Dark-mode & accessibility improvements ═══ */
 
 /* Dark-mode token overrides */
-@media (prefers-color-scheme: dark) {
-  body { background: #111827 !important; }
-  .all-2 { background: #111827 !important; }
-  .all-2 .sg-layout {
-    --sg-ink: #e2e8f2;
-    --sg-muted: #8a94aa;
-    --sg-lead: #9ba5bb;
-    --sg-accent: #22cde8;
-    --sg-accent-bg: #0c3d46;
-    --sg-active: #22cde8;
-    --sg-page: #111827;
-    --sg-line: #2c3548;
-    --sg-hover: rgba(255,255,255,.06);
-    --sg-num: #8a94aa;
-    --sg-canvas: #2a3448;
-    --sg-sec-bg: #1e2535;
-  }
-  .all-2 .sg-sec.sg-l1,
-  .all-2 .sg-intro { background: #1e2535 !important; box-shadow: 0 1px 2px rgba(0,0,0,.3) !important; }
-  .all-2 .sg-nav {
-    background: rgba(17,24,39,.9) !important;
-    border-color: rgba(255,255,255,.08) !important;
-  }
-  .all-2 .sg-nav__filter {
-    background-color: rgba(255,255,255,.06) !important;
-    border-color: rgba(255,255,255,.1) !important;
-    color: #e2e8f2 !important;
-  }
-  .all-2 .sg-specimen,
-  .all-2 .sg-type,
-  .all-2 .sg-grad,
-  .all-2 .sg-doc,
-  .all-2 a.sg-intro__card,
-  .all-2 a.sg-intro__card:link,
-  .all-2 a.sg-intro__card:visited { background: #1e2535 !important; border-color: #2c3548 !important; }
-  .all-2 .sg-plain li,
-  .all-2 .sg-steps li,
-  .all-2 .sg-updated { background: #1e2535 !important; border-color: #2c3548 !important; }
-  .all-2 .sg-tabs { background: rgba(0,0,0,.25) !important; }
-  .all-2 .sg-tabs button.is-active { background: #2a3448 !important; box-shadow: 0 1px 2px rgba(0,0,0,.3) !important; }
-  .all-2 details.sg-prompt { background: #1e2535 !important; border-color: #2c3548 !important; }
-  .all-2 summary.sg-prompt__head { background: #18202f !important; }
-  .all-2 .sg-prompt__copy { background: #2a3448 !important; border-color: #3a4560 !important; color: #e2e8f2 !important; }
-  .all-2 .sg-note { background: #26200f !important; }
-  .all-2 .sg-callout { background: #0c3d46 !important; border-color: #1a5a6e !important; }
-  .all-2 a.sg-nav__feedback,
-  .all-2 a.sg-nav__feedback:link,
-  .all-2 a.sg-nav__feedback:visited { background: rgba(255,255,255,.04) !important; border-color: rgba(255,255,255,.1) !important; }
-  .all-2 a.sg-btn--ghost,
-  .all-2 a.sg-btn--ghost:link,
-  .all-2 a.sg-btn--ghost:visited { background: #1e2535 !important; border-color: #2c3548 !important; }
-  .all-2 .sg-grad__css { background: #18202f !important; }
-  .all-2 .sg-sample__plate { background: #2a3448 !important; }
-  .all-2 .sg-updated.is-stale { background: #26200f !important; border-color: #3d2c00 !important; }
-  .all-2 .sg-compact-toggle { background: #1e2535 !important; border-color: #2c3548 !important; }
-  .all-2 .sg-rule { background: #2a1a1b !important; border-color: #3a2020 !important; }
-  .all-2 .rp-card--do { background: #0d2a1e !important; }
-  .all-2 .rp-card--dont { background: #2a1010 !important; }
-  .all-2 .rp-card--why { background: #0e1e35 !important; }
-  .all-2 .rp-card--ctx { background: #1a1030 !important; }
-  .all-2 .rp-compare__row--ok { background: #26200f !important; }
-  .all-2 .rp-compare__row--best { background: #0d2a1e !important; }
-  .all-2 .sg-dont__frame { border-color: #2c3548 !important; background: #1e2535 !important; }
-  .all-2 .sg-grad__chip,
-  .all-2 .sg-grad__chip:hover { background: #1e2535 !important; border-color: #2c3548 !important; color: #e2e8f2 !important; }
-  .all-2 .sg-nav__badge { background: #0c3d46 !important; }
-  .all-2 .sg-cover { background: linear-gradient(90deg,#005f6b 0%,#007e8e 100%) !important; }
-  .all-2 .sg-big__row:hover { background: rgba(255,255,255,.08) !important; }
-  .all-2 .sg-copy__overlay { background: #0c3d46 !important; }
-  @media (hover:none) {
-    .all-2 .sg-copy__overlay { background: rgba(20,28,44,.92) !important; }
-  }
-}
 
-/* Same overrides triggered by explicit toggle */
-[data-theme="dark"] body { background: #111827 !important; }
-[data-theme="dark"] .all-2 { background: #111827 !important; }
-[data-theme="dark"] .all-2 .sg-layout {
-  --sg-ink: #e2e8f2; --sg-muted: #8a94aa; --sg-lead: #9ba5bb;
-  --sg-accent: #22cde8; --sg-accent-bg: #0c3d46; --sg-active: #22cde8;
-  --sg-page: #111827; --sg-line: #2c3548; --sg-hover: rgba(255,255,255,.06);
-  --sg-num: #8a94aa; --sg-canvas: #2a3448; --sg-sec-bg: #1e2535;
-}
-[data-theme="dark"] .all-2 .sg-sec.sg-l1,
-[data-theme="dark"] .all-2 .sg-intro { background: #1e2535 !important; box-shadow: 0 1px 2px rgba(0,0,0,.3) !important; }
-[data-theme="dark"] .all-2 .sg-nav { background: rgba(17,24,39,.9) !important; border-color: rgba(255,255,255,.08) !important; }
-[data-theme="dark"] .all-2 .sg-nav__filter { background-color: rgba(255,255,255,.06) !important; border-color: rgba(255,255,255,.1) !important; color: #e2e8f2 !important; }
-[data-theme="dark"] .all-2 .sg-specimen,
-[data-theme="dark"] .all-2 .sg-type,
-[data-theme="dark"] .all-2 .sg-grad,
-[data-theme="dark"] .all-2 .sg-doc,
-[data-theme="dark"] .all-2 a.sg-intro__card { background: #1e2535 !important; border-color: #2c3548 !important; }
-[data-theme="dark"] .all-2 .sg-plain li,
-[data-theme="dark"] .all-2 .sg-steps li,
-[data-theme="dark"] .all-2 .sg-updated { background: #1e2535 !important; border-color: #2c3548 !important; }
-[data-theme="dark"] .all-2 .sg-tabs { background: rgba(0,0,0,.25) !important; }
-[data-theme="dark"] .all-2 .sg-tabs button.is-active { background: #2a3448 !important; }
-[data-theme="dark"] .all-2 details.sg-prompt { background: #1e2535 !important; border-color: #2c3548 !important; }
-[data-theme="dark"] .all-2 summary.sg-prompt__head { background: #18202f !important; }
-[data-theme="dark"] .all-2 .sg-prompt__copy { background: #2a3448 !important; border-color: #3a4560 !important; color: #e2e8f2 !important; }
-[data-theme="dark"] .all-2 .sg-note { background: #26200f !important; }
-[data-theme="dark"] .all-2 .sg-callout { background: #0c3d46 !important; border-color: #1a5a6e !important; }
-[data-theme="dark"] .all-2 a.sg-nav__feedback { background: rgba(255,255,255,.04) !important; border-color: rgba(255,255,255,.1) !important; }
-[data-theme="dark"] .all-2 a.sg-btn--ghost { background: #1e2535 !important; border-color: #2c3548 !important; }
-[data-theme="dark"] .all-2 .sg-grad__css { background: #18202f !important; }
-[data-theme="dark"] .all-2 .sg-sample__plate { background: #2a3448 !important; }
-[data-theme="dark"] .all-2 .sg-updated.is-stale { background: #26200f !important; }
-[data-theme="dark"] .all-2 .sg-compact-toggle { background: #1e2535 !important; border-color: #2c3548 !important; }
-[data-theme="dark"] .all-2 .sg-rule { background: #2a1a1b !important; border-color: #3a2020 !important; }
-[data-theme="dark"] .all-2 .rp-card--do { background: #0d2a1e !important; }
-[data-theme="dark"] .all-2 .rp-card--dont { background: #2a1010 !important; }
-[data-theme="dark"] .all-2 .rp-card--why { background: #0e1e35 !important; }
-[data-theme="dark"] .all-2 .rp-card--ctx { background: #1a1030 !important; }
-[data-theme="dark"] .all-2 .rp-compare__row--ok { background: #26200f !important; }
-[data-theme="dark"] .all-2 .rp-compare__row--best { background: #0d2a1e !important; }
-[data-theme="dark"] .all-2 .sg-dont__frame { border-color: #2c3548 !important; background: #1e2535 !important; }
-[data-theme="dark"] .all-2 .sg-grad__chip { background: #1e2535 !important; border-color: #2c3548 !important; color: #e2e8f2 !important; }
-[data-theme="dark"] .all-2 .sg-nav__badge { background: #0c3d46 !important; }
-[data-theme="dark"] .all-2 .sg-cover { background: linear-gradient(90deg,#005f6b 0%,#007e8e 100%) !important; }
 
 /* Light theme explicit override — cancels @media dark when user forces light */
 [data-theme="light"] body { background: #e7eef9 !important; }
@@ -706,15 +588,12 @@ a  {
 .sg-theme-toggle:focus-visible { outline: 2px solid var(--sg-accent,#00b9d1); outline-offset: 2px; }
 .sg-theme-toggle .icon-sun { display: none; }
 .sg-theme-toggle .icon-moon { display: block; }
-[data-theme="dark"] .sg-theme-toggle,
+.sg-theme-toggle,
 @media (prefers-color-scheme: dark) {
   .sg-theme-toggle:not([data-forced="light"]) { background: #1e2535; color: #e2e8f2; border-color: #2c3548; }
   .sg-theme-toggle:not([data-forced="light"]) .icon-sun { display: block; }
   .sg-theme-toggle:not([data-forced="light"]) .icon-moon { display: none; }
 }
-[data-theme="dark"] .sg-theme-toggle { background: #1e2535 !important; color: #e2e8f2 !important; border-color: #2c3548 !important; }
-[data-theme="dark"] .sg-theme-toggle .icon-sun { display: block !important; }
-[data-theme="dark"] .sg-theme-toggle .icon-moon { display: none !important; }
 [data-theme="light"] .sg-theme-toggle .icon-sun { display: none !important; }
 [data-theme="light"] .sg-theme-toggle .icon-moon { display: block !important; }
 
@@ -745,7 +624,6 @@ a  {
 @media (prefers-color-scheme: dark) {
   .sg-back-top { background: #1e2535; color: #e2e8f2; border-color: #2c3548; }
 }
-[data-theme="dark"] .sg-back-top { background: #1e2535 !important; color: #e2e8f2 !important; border-color: #2c3548 !important; }
 [data-theme="light"] .sg-back-top { background: #fff !important; color: #373660 !important; border-color: rgba(0,0,0,.12) !important; }
 [data-theme="light"] .sg-theme-toggle { background: #fff !important; color: #373660 !important; border-color: rgba(0,0,0,.12) !important; }
 
@@ -837,7 +715,7 @@ a  {
 .all-2 .text-block-14 { white-space: nowrap; }
 </style>
 </head>
-<body><button aria-label="Переключить тему оформления" class="sg-theme-toggle" id="sg-theme-toggle" type="button"><svg aria-hidden="true" class="icon-moon" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="20"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg aria-hidden="true" class="icon-sun" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="20"><circle cx="12" cy="12" r="5"/><line x1="12" x2="12" y1="1" y2="3"/><line x1="12" x2="12" y1="21" y2="23"/><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"/><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"/><line x1="1" x2="3" y1="12" y2="12"/><line x1="21" x2="23" y1="12" y2="12"/><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"/><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"/></svg></button><button aria-label="Вернуться вверх" class="sg-back-top" id="sg-back-top" type="button"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><polyline points="18 15 12 9 6 15"/></svg></button>
+<body><button aria-label="Вернуться вверх" class="sg-back-top" id="sg-back-top" type="button"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><polyline points="18 15 12 9 6 15"/></svg></button>
 <div class="all-2"><div class="sg-layout"><button aria-expanded="false" class="sg-burger" id="sg-burger" type="button">Разделы</button><aside class="sg-nav" id="sg-nav"><picture><source media="(prefers-color-scheme: dark)" srcset="images/logo-dark-color.svg"/><img alt="НаПоправку" class="sg-nav__logo" id="sg-nav-logo" src="images/group-277131981.svg" width="188"/></picture><input aria-label="Найти раздел" class="sg-nav__filter" id="sg-filter" placeholder="Найти раздел" type="search"/><nav aria-label="Разделы гайдлайна" class="sg-nav__body" id="sg-nav-body"><ul class="sg-nav__list sg-nav__list--1"><li class="sg-nav__item"><div class="sg-nav__row"><button aria-controls="grp-logotip-i-znak" aria-expanded="false" aria-label="Развернуть раздел Логотип и знак" class="sg-nav__toggle" type="button"><svg aria-hidden="true" focusable="false" height="14" viewbox="0 0 16 16" width="14"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></button><a class="sg-nav__link sg-nav__link--1" data-target="logotip-i-znak" href="#logotip-i-znak"><span class="sg-nav__text">Логотип и знак</span></a></div><ul class="sg-nav__list sg-nav__list--2" hidden="" id="grp-logotip-i-znak"><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="obshchaia-informatsiia" href="#obshchaia-informatsiia"><span class="sg-nav__num">1.1</span><span class="sg-nav__text">Общая информация</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="osnovnoi-logotip" href="#osnovnoi-logotip"><span class="sg-nav__num">1.2</span><span class="sg-nav__text">Основной логотип</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="napopravku-plius" href="#napopravku-plius"><span class="sg-nav__num">1.3</span><span class="sg-nav__text">НаПоправку Плюс</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="napopravku-dlia-klinik" href="#napopravku-dlia-klinik"><span class="sg-nav__num">1.4</span><span class="sg-nav__text">НаПоправку для клиник</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="okhrannoe-pole" href="#okhrannoe-pole"><span class="sg-nav__num">1.5</span><span class="sg-nav__text">Охранное поле</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="minimalnyi-razmer" href="#minimalnyi-razmer"><span class="sg-nav__num">1.6</span><span class="sg-nav__text">Минимальные размеры</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="variativnost-logotipa" href="#variativnost-logotipa"><span class="sg-nav__num">1.7</span><span class="sg-nav__text">Вариативность логотипа</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="slozhnye-fony" href="#slozhnye-fony"><span class="sg-nav__num">1.8</span><span class="sg-nav__text">Использование на сложных фонах</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="nedopustimoe-ispolzovanie" href="#nedopustimoe-ispolzovanie"><span class="sg-nav__num">1.9</span><span class="sg-nav__text">Недопустимое использование</span></a></div></li></ul></li><li class="sg-nav__item"><div class="sg-nav__row"><button aria-controls="grp-tsvetovaia-palitra" aria-expanded="false" aria-label="Развернуть раздел Цветовая палитра" class="sg-nav__toggle" type="button"><svg aria-hidden="true" focusable="false" height="14" viewbox="0 0 16 16" width="14"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></button><a class="sg-nav__link sg-nav__link--1" data-target="tsvetovaia-palitra" href="#tsvetovaia-palitra"><span class="sg-nav__text">Цветовая палитра</span></a></div><ul class="sg-nav__list sg-nav__list--2" hidden="" id="grp-tsvetovaia-palitra"><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="osnovnye-firmennye-tsveta" href="#osnovnye-firmennye-tsveta"><span class="sg-nav__num">2.1</span><span class="sg-nav__text">Основные фирменные цвета</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="firmennye-tsveta-telemeda" href="#firmennye-tsveta-telemeda"><span class="sg-nav__num">2.2</span><span class="sg-nav__text">Фирменные цвета телемеда</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="dopolnitelnye-tsveta" href="#dopolnitelnye-tsveta"><span class="sg-nav__num">2.3</span><span class="sg-nav__text">Дополнительные цвета</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="gradienty" href="#gradienty"><span class="sg-nav__num">2.4</span><span class="sg-nav__text">Градиенты</span></a></div></li></ul></li><li class="sg-nav__item"><div class="sg-nav__row"><button aria-controls="grp-shrift" aria-expanded="false" aria-label="Развернуть раздел Шрифт" class="sg-nav__toggle" type="button"><svg aria-hidden="true" focusable="false" height="14" viewbox="0 0 16 16" width="14"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></button><a class="sg-nav__link sg-nav__link--1" data-target="shrift" href="#shrift"><span class="sg-nav__text">Шрифт</span></a></div><ul class="sg-nav__list sg-nav__list--2" hidden="" id="grp-shrift"><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="osnovnoi-shrift" href="#osnovnoi-shrift"><span class="sg-nav__num">3.1</span><span class="sg-nav__text">Основной шрифт</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="proportsii" href="#proportsii"><span class="sg-nav__num">3.2</span><span class="sg-nav__text">Пропорции</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="palitra-teksta" href="#palitra-teksta"><span class="sg-nav__num">3.3</span><span class="sg-nav__text">Палитра текста</span></a></div></li></ul></li><li class="sg-nav__item"><div class="sg-nav__row"><button aria-controls="grp-rabota-s-neirosetiami" aria-expanded="false" aria-label="Развернуть раздел Работа с нейросетями" class="sg-nav__toggle" type="button"><svg aria-hidden="true" focusable="false" height="14" viewbox="0 0 16 16" width="14"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></button><a class="sg-nav__link sg-nav__link--1" data-target="rabota-s-neirosetiami" href="#rabota-s-neirosetiami"><span class="sg-nav__text">Работа с нейросетями</span></a></div><ul class="sg-nav__list sg-nav__list--2" hidden="" id="grp-rabota-s-neirosetiami"><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="ai-na-obsij-stil" href="#ai-na-obsij-stil"><span class="sg-nav__num">4.1</span><span class="sg-nav__text">Основной стиль</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="ai-stil-telemeda" href="#ai-stil-telemeda"><span class="sg-nav__num">4.2</span><span class="sg-nav__text">Телемед</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="tab-panel-client" href="#tab-panel-client"><span class="sg-nav__num">4.3</span><span class="sg-nav__text">Презентации B2B</span></a></div></li><li class="sg-nav__item"><div class="sg-nav__row"><span aria-hidden="true" class="sg-nav__toggle sg-nav__toggle--empty"></span><a class="sg-nav__link sg-nav__link--2" data-target="tab-panel-internal" href="#tab-panel-internal"><span class="sg-nav__num">4.4</span><span class="sg-nav__text">Корпоративные презентации</span></a></div></li></ul></li></ul></li></ul></nav><a class="sg-nav__feedback" href="mailto:i.isanbaev@napopravku.ru?subject=Гайдлайн: нашёл неточность">✎ Нашли неточность — написать</a></aside><div class="sg-content"><div class="sg-intro"><h2 class="sg-intro__title">С чего начать</h2><p class="sg-lead">Гайдлайн большой, и необязательно читать его подряд от начала до конца — выберите то, что нужно именно вам.</p><div class="sg-intro__grid"><a class="sg-intro__card" href="#logotip-i-znak"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="40"><path d="M12 3C7 3 3 6.8 3 11.5 3 15 5.5 17 8 17h1.2c.9 0 1.5.9 1.1 1.7l-.3.6c-.5 1 .2 2.2 1.3 2.2C16.9 21.5 21 17.1 21 12 21 6.9 17 3 12 3z"></path><circle cx="7.8" cy="10.3" fill="currentColor" r="1.1" stroke="none"></circle><circle cx="12" cy="7.3" fill="currentColor" r="1.1" stroke="none"></circle><circle cx="16.2" cy="10.3" fill="currentColor" r="1.1" stroke="none"></circle></svg><div class="sg-intro__text"><b>Дизайнеру</b><span>Логотип, цвета, шрифт — разделы 1–3</span></div></a><a class="sg-intro__card" href="#rabota-s-neirosetiami"><svg aria-hidden="true" fill="currentColor" height="40" viewbox="0 0 24 24" width="40"><path d="M12 2.5c.4 3.6 1.2 5.9 2.4 7.1 1.2 1.2 3.5 2 7.1 2.4-3.6.4-5.9 1.2-7.1 2.4-1.2 1.2-2 3.5-2.4 7.1-.4-3.6-1.2-5.9-2.4-7.1-1.2-1.2-3.5-2-7.1-2.4 3.6-.4 5.9-1.2 7.1-2.4 1.2-1.2 2-3.5 2.4-7.1z"></path></svg><div class="sg-intro__text"><b>Работаю с нейросетью</b><span>Готовые промпты, чтобы генерация сразу попадала в стиль — раздел 4</span></div></a><a class="sg-intro__card" href="#redpolitika"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="40"><path d="M4 20h4L18.5 9.5a2.12 2.12 0 0 0 0-3l-1-1a2.12 2.12 0 0 0-3 0L4 16v4z"></path><path d="M13 6.5l4 4"></path></svg><div class="sg-intro__text"><b>Копирайтеру</b><span>Тон, три принципа, примеры «пишем / не пишем» — раздел 5</span></div></a></div></div><section class="sg-sec sg-l1" id="logotip-i-znak"><div class="sg-cover"><h2 class="sg-sec__title"><span class="sg-sec__num">1.</span> Логотип и знак</h2><div class="sg-cover__art"><img alt="Логотип НаПоправку" class="sg-cover__img" loading="lazy" src="images/cover-logo.png"/></div></div><div class="sg-sec__body">
 <div class="div-block-184">
 <div class="sg-group"><section class="sg-sec sg-l2" id="obshchaia-informatsiia"><h3 class="sg-sec__title"><span class="sg-sec__num">1.1</span> Общая информация</h3><div class="sg-sec__body">
@@ -1547,32 +1425,6 @@ a  {
   }
 
   // ─── Тема: тёмный/светлый режим ──────────────────────────────────────────
-  (function () {
-    var btn = document.getElementById('sg-theme-toggle');
-    if (!btn) return;
-    var KEY = 'sg-theme';
-    var stored = null;
-    try { stored = localStorage.getItem(KEY); } catch (e) {}
-    if (stored) document.documentElement.setAttribute('data-theme', stored);
-    var initLogo = document.getElementById('sg-nav-logo');
-    if (initLogo && stored === 'dark') initLogo.src = 'images/logo-dark-color.svg';
-
-    btn.addEventListener('click', function () {
-      var current = document.documentElement.getAttribute('data-theme');
-      var isDark = current === 'dark' ||
-        (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      var next = isDark ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem(KEY, next); } catch (e) {}
-      var logo = document.getElementById('sg-nav-logo');
-      if (logo) {
-        logo.src = next === 'dark' ? 'images/logo-dark-color.svg' : 'images/group-277131981.svg';
-        var pic = logo.closest('picture');
-        if (pic) { var src = pic.querySelector('source'); if (src) src.media = next === 'dark' ? 'all' : 'not all'; }
-      }
-    });
-  })();
-
   // ─── Кнопка «наверх» ─────────────────────────────────────────────────────
   (function () {
     var btn = document.getElementById('sg-back-top');
