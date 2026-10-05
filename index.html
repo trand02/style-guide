@@ -639,8 +639,50 @@ a  {
 [data-theme="dark"] .all-2 .sg-nav__badge { background: #0c3d46 !important; }
 [data-theme="dark"] .all-2 .sg-cover { background: linear-gradient(90deg,#005f6b 0%,#007e8e 100%) !important; }
 
-/* Light theme explicit override (keep original when forced) */
+/* Light theme explicit override — cancels @media dark when user forces light */
+[data-theme="light"] body { background: #e7eef9 !important; }
 [data-theme="light"] .all-2 { background: #e7eef9 !important; }
+[data-theme="light"] .all-2 .sg-layout {
+  --sg-ink: #373660; --sg-muted: #8686a0; --sg-lead: #5e5e80;
+  --sg-accent: #00b9d1; --sg-accent-bg: #ccf1f7; --sg-active: #66d6e4;
+  --sg-page: #e7eef9; --sg-line: #e8edf4; --sg-hover: rgba(255,255,255,.5);
+  --sg-num: #6b6889; --sg-canvas: #fff; --sg-sec-bg: #fff;
+}
+[data-theme="light"] .all-2 .sg-sec.sg-l1,
+[data-theme="light"] .all-2 .sg-intro { background: #fff !important; box-shadow: 0 1px 2px rgba(55,54,96,.04) !important; }
+[data-theme="light"] .all-2 .sg-nav { background: rgba(255,255,255,.62) !important; border-color: rgba(255,255,255,.6) !important; }
+[data-theme="light"] .all-2 .sg-nav__filter { background-color: rgba(255,255,255,.5) !important; border-color: rgba(255,255,255,.7) !important; color: #373660 !important; }
+[data-theme="light"] .all-2 .sg-specimen,
+[data-theme="light"] .all-2 .sg-type,
+[data-theme="light"] .all-2 .sg-grad,
+[data-theme="light"] .all-2 .sg-doc,
+[data-theme="light"] .all-2 a.sg-intro__card { background: #fff !important; border-color: #e8edf4 !important; }
+[data-theme="light"] .all-2 .sg-plain li,
+[data-theme="light"] .all-2 .sg-steps li,
+[data-theme="light"] .all-2 .sg-updated { background: #fff !important; border-color: #e8edf4 !important; }
+[data-theme="light"] .all-2 .sg-tabs { background: rgba(55,54,96,.06) !important; }
+[data-theme="light"] .all-2 .sg-tabs button.is-active { background: #fff !important; box-shadow: 0 1px 2px rgba(55,54,96,.1) !important; }
+[data-theme="light"] .all-2 details.sg-prompt { background: #fff !important; border-color: #e8edf4 !important; }
+[data-theme="light"] .all-2 summary.sg-prompt__head { background: #faf9fc !important; }
+[data-theme="light"] .all-2 .sg-prompt__copy { background: #fff !important; border-color: #e8edf4 !important; color: #373660 !important; }
+[data-theme="light"] .all-2 .sg-note { background: #fffaf0 !important; }
+[data-theme="light"] .all-2 .sg-callout { background: #ccf1f7 !important; border-color: #bde8f3 !important; }
+[data-theme="light"] .all-2 a.sg-nav__feedback { background: rgba(255,255,255,.5) !important; border-color: rgba(255,255,255,.7) !important; }
+[data-theme="light"] .all-2 a.sg-btn--ghost { background: #fff !important; border-color: #e8edf4 !important; }
+[data-theme="light"] .all-2 .sg-grad__css { background: #f6f6fa !important; }
+[data-theme="light"] .all-2 .sg-sample__plate { background: #fff !important; }
+[data-theme="light"] .all-2 .sg-compact-toggle { background: #fff !important; border-color: #e8edf4 !important; }
+[data-theme="light"] .all-2 .sg-rule { background: #fff5f5 !important; border-color: #ffdbdd !important; }
+[data-theme="light"] .all-2 .rp-card--do { background: #e9faf0 !important; }
+[data-theme="light"] .all-2 .rp-card--dont { background: #ffeded !important; }
+[data-theme="light"] .all-2 .rp-card--why { background: #eaf3ff !important; }
+[data-theme="light"] .all-2 .rp-card--ctx { background: #f6efff !important; }
+[data-theme="light"] .all-2 .rp-compare__row--ok { background: #fef7e0 !important; }
+[data-theme="light"] .all-2 .rp-compare__row--best { background: #e9faf0 !important; }
+[data-theme="light"] .all-2 .sg-dont__frame { border-color: #e8edf4 !important; background: transparent !important; }
+[data-theme="light"] .all-2 .sg-grad__chip { background: #fff !important; border-color: #e8edf4 !important; color: #373660 !important; }
+[data-theme="light"] .all-2 .sg-nav__badge { background: #ccf1f7 !important; }
+[data-theme="light"] .all-2 .sg-cover { background: linear-gradient(90deg,#00b9d1 0%,#66d6e4 100%) !important; }
 
 /* Dark-mode toggle button */
 .sg-theme-toggle {
